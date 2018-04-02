@@ -1,0 +1,12 @@
+1. 将python列表中的整型元素转成字符串元素并拼接成一个字符串
+ls1 = [1,2,3,4,5,6]
+ls1 = list(map(str,ls1))
+['1','2','3','4','5','6']
+''.join(ls1)
+'123456'
+
+或者使用reduce函数
+
+from functools import reduce
+ls1 = list(map(str,ls1))
+reduce(lambda x,y: x+y, ls1)
