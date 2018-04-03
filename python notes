@@ -8,5 +8,19 @@ ls1 = list(map(str,ls1))
 或者使用reduce函数
 
 from functools import reduce
+
 ls1 = list(map(str,ls1))
 reduce(lambda x,y: x+y, ls1)
+
+2. 若Python列表中的元素既含有数值型元素又含有字符型元素，将其统一转换成字符型元素的方法是：
+# 暂时只想到这种方法，更pythonic的方法还没想到，想到之后再更新吧
+
+def convertInttoStr(alist):
+    newlist = []
+    for i in alist:
+        if not isinstance(i,str):
+			newlist.append(str(i))
+		else:
+			newlist.append(i)
+	return newlist
+	
