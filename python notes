@@ -24,5 +24,13 @@ def convertInttoStr(alist):
             newlist.append(i)
         
     return newlist
+
+3. 使用del关键字 删除长列表中的指定元素。比如26个英文字母组成的列表的'q'字母
+首先创建一个由26个英文字母组成的列表
+letterlist = [chr(i) for i in range(97,123)
+del letterlist[letterlist.index('q')]
+
+
+
     
 	
