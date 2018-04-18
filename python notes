@@ -139,7 +139,25 @@ AttributeError: 'Student' object has no attribute '__name'
 6. DataFrame选择col的技巧
 在Titanic比赛的训练数据中，在一番预处理后，将male对应0，female对应1。此时对该train_df训练数据集进行遍历，可以这样来选择对应不同性别、
 不同Pclass的年龄
+
 for i in range(0,2):
     for j in range(0,3):
         train_df[(train_df['Sex'] == i & (train_df['Pclass'] == j+1)]['Age'].dropna()
 	
+	
+7. train_df.loc[train_df['Age'] == 80]  可查找年龄为80岁的乘客的信息
+
+8. 指定条件，以此来删掉DataFrame中特定的行。
+比如：删掉traindata数据中h_in为1.2，同时h_out为0.2的行  (注意这个同时，此时不会删除h_in=1.2,h_out=0.6的行）
+
+traindata[(True^(traindata['h_in'].isin([1.2]) & traindata['h_out'].isin([0.2])))]
+
+若代码写成：
+
+traindata[(True^(traindata['h_in'].isin([1.2])) & (True^traindata['h_out'].isin([0.2]))]
+
+此时就会把h_in=1.2（不管h_out是多少）,以及h_out=0.2（不管h_in是多少）的行数据全删掉
+
+
+
+
