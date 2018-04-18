@@ -136,5 +136,10 @@ AttributeError: 'Student' object has no attribute '__name'
 >>> bart._Student__name
 'Bart Simphson'
 
-    
+6. DataFrame选择col的技巧
+在Titanic比赛的训练数据中，在一番预处理后，将male对应0，female对应1。此时对该train_df训练数据集进行遍历，可以这样来选择对应不同性别、
+不同Pclass的年龄
+for i in range(0,2):
+    for j in range(0,3):
+        train_df[(train_df['Sex'] == i & (train_df['Pclass'] == j+1)]['Age'].dropna()
 	
