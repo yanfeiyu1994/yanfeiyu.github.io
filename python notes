@@ -145,7 +145,9 @@ for i in range(0,2):
         train_df[(train_df['Sex'] == i & (train_df['Pclass'] == j+1)]['Age'].dropna()
 	
 	
-7. train_df.loc[train_df['Age'] == 80]  可查找年龄为80岁的乘客的信息
+7. train_df.loc[train_df['Age'] == 80]  可查找年龄为80岁的乘客的信息  
+   train_df.loc[(train_df['Age'] == 80) | (train_df['Age'] == 75)]  并集 取出年龄为80和年龄为75的数据
+   train_df.loc[train_df['Age'] == 80, 'Name'] 取出train_df 中年龄为80的乘客的数据
 
 8. 指定条件，以此来删掉DataFrame中特定的行。
 比如：删掉traindata数据中h_in为1.2，同时h_out为0.2的行  (注意这个同时，此时不会删除h_in=1.2,h_out=0.6的行）
@@ -159,5 +161,12 @@ traindata[(True^(traindata['h_in'].isin([1.2])) & (True^traindata['h_out'].isin(
 此时就会把h_in=1.2（不管h_out是多少）,以及h_out=0.2（不管h_in是多少）的行数据全删掉
 
 
+9. train_df.Age.dropna().mode()[0]   取出年龄的众数（如果有多个众数，则取出第一个）
+
+10. 查找某行是否存在缺失值 (打印出存在缺失值的行）
+
+for i in train_df.columns:
+    if train_df[i].isnull().any():
+        print(i)
 
 
