@@ -1,0 +1,21 @@
+《算法》第四版
+
+1. 配置Elicpse以使用书中的自带的标准库（配置stdlib.jar, algs4.jar）
+
+Eclipse (manual). Download stdlib.jar and algs4.jar to a folder and add each jar file to the classpath variable to 
+the build path of a project via Project -> Properties -> Java Build Path -> Libaries -> Add External JARs.
+
+2. 对于在Eclipse中实现重定向，比如书中第一个二分查找的例子是用命令行执行的
+% java BinarySearch tinyW.txt < tinyT.txt
+但是每次编译的时候需要指定jar包参数，着实麻烦。因为参考该博客
+https://blog.csdn.net/molin4/article/details/55107246
+给出的方法来设置重定向
+
+tinyT.txt文件重定向设置，单击Run As—>Run Configurations
+选择Common项，勾选Input File复选框，选择要输入的tinyT.txt文本
+
+设置输入参数，同样在Run Configurations中，Arguments项
+注意： 此处参数tinyW.txt是相对路径，如跟图示配置一致，请将tinyW.txt文件拷贝至项目根路径，即/src/ 上级目录。
+
+执行Run，成功！
+
